@@ -1,0 +1,30 @@
+{
+    "name": "schoologyapi",
+    "version": "0.0.1",
+    "description": "Schoology API Formatter",
+    "author": "33tm",
+    "license": "MIT",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/esm/index.d.ts",
+    "keywords": [
+        "schoology",
+        "schoologyapi"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/33tm/SchoologyAPI.git"
+    },
+    "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+        "build:esm": "tsc --module esnext --outDir dist/esm"
+    },
+    "dependencies": {
+        "oauth-1.0a": "^2.2.6"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.20",
+        "typescript": "^5.3.3"
+    }
+}

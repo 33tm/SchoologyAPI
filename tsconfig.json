@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "target": "ESNext",
+        "moduleResolution": "Node",
+    },
+    "include": [
+        "./index.ts"
+    ],
+    "exclude": [
+        "./dist/**/*"
+    ]
+}
