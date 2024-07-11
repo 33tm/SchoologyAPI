@@ -1,45 +1,49 @@
 # Schoology API
 
-## Install
-```shell
+### Install
+```bash
 npm i schoologyapi
-yarn add schoologyapi
-pnpm i schoologyapi
-bun add schoologyapi
 ```
 
-## Import
-### CommonJS
+### Import
 ```javascript
+// CommonJS
 const SchoologyAPI = require("schoologyapi")
-```
-### ES Module
-```javascript
+
+// ES Module
 import SchoologyAPI from "schoologyapi"
 ```
 
-## Instantiate
-> https://{district}.schoology.com/api
+### Instantiate
+> Get API credentials from https://{district}.schoology.com/api
 ```javascript
 const client = new SchoologyAPI("key", "string")
 ```
 
-## Request
-`await client.request(method, uri, accessToken, body)`
+### Request
+`request(method, uri, accessToken?, body?)`
+
+`method`: HTTP Verb (GET, POST, PUT, DELETE).
+
+`uri`: Schoology API endpoint uri, already prefixed with `/v1`.
+
+[Optional] `accessToken`: Access token for three-legged OAuth, taken in the shape of `{ key: string, secret: string }`.
+
+[Optional] `body`: JSON body for Schoology API Call (Not allowed for GET requests).
+
 ```javascript
-await client.request(
-    "PUT",
-    "/users/12345",
-    { key, string },
-    { uid: 12345 }
-)
+await client.request("GET", "/users/13225459")
 ```
 
-## Format Token
-`{ key: string, string: string }`
+### Format OAuth Token
+Takes in an OAuth token string `oauth_token=abcdef&oauth_token_secret=ghijkl`, returns `{ key: "abcdef", secret: "ghijkl" }`.
+
 ```javascript
-const token = "oauth_token=abc&oauth_token_secret=def"
+const token = "oauth_token=abcdef&oauth_token_secret=ghijkl"
 const { key, secret } = client.format(token)
+console.log(key, secret)
 ```
+> `abcdef ghijkl`
 
-Enjoy!
+### Enjoy!
+(Optional)
