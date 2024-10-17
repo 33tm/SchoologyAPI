@@ -2,8 +2,8 @@ import crypto from "crypto"
 import OAuth from "oauth-1.0a"
 
 export default class SchoologyAPI {
-    key: string
-    secret: string
+    private key: string
+    private secret: string
 
     constructor(key: string, secret: string) {
         this.key = key
