@@ -2,12 +2,12 @@ import crypto from "crypto"
 import OAuth from "oauth-1.0a"
 
 export default class SchoologyAPI {
-    private key: string
-    private secret: string
+    #key: string
+    #secret: string
 
     constructor(key: string, secret: string) {
-        this.key = key
-        this.secret = secret
+        this.#key = key
+        this.#secret = secret
     }
 
     async request(
@@ -19,7 +19,7 @@ export default class SchoologyAPI {
         const url = `https://api.schoology.com/v1${uri}`
 
         const oauth = new OAuth({
-            consumer: { key: this.key, secret: this.secret },
+            consumer: { key: this.#key, secret: this.#secret },
             signature_method: "HMAC-SHA1",
             hash_function(base, key) {
                 return crypto
